@@ -33,7 +33,7 @@ services:
       - "pg_stat_statements.max=10000"
       - "-c"
       - "pg_stat_statements.track=all"
-      - "chmod 777 /var/lib/postgresql/data"
+      - "sh -c chmod 777 /var/lib/postgresql/data"
     environment:
       POSTGRES_DB: "main"
       POSTGRES_USER: "gleb-naz"
@@ -78,7 +78,7 @@ services:
     networks:
       - postgres
     command:
-      - "chmod 777 /var/lib/pgadmin"
+      - "sh -c chmod 777 /var/lib/pgadmin"
 
   postgres_exporter:
     container_name: exporter_container
@@ -101,7 +101,7 @@ services:
     networks:
       - postgres
     command:
-      - "chmod 777 /etc/postgres_exporter"
+      - "sh -c chmod 777 /etc/postgres_exporter"
 
 networks:
   postgres:
