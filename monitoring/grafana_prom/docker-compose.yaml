@@ -12,6 +12,7 @@ services:
 
   prometheus:
     image: prom/prometheus:v2.1.0
+    container_name: prometheus
     volumes:
       - ./prometheus/:/etc/prometheus/
       - prometheus_data:/prometheus
@@ -29,6 +30,7 @@ services:
 
   grafana:
     image: grafana/grafana
+    container_name: grafana
     user: "472"
     depends_on:
       - prometheus
